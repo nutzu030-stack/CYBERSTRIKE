@@ -98,9 +98,13 @@ def get_scenarios():
         for key, data in SCENARIOS.items()
     ])
 
-@app.route('/api/start', methods=['POST'])
+@app.route('/api/start', methods=['GET', 'POST'])
 def start_simulation():
-    data = request.get_json(silent=True) or {}
+    if request.method == 'POST':
+        data = request.get_json(silent=True) or {}
+    else:
+        data = request.args.to_dict()
+
     scenario_key = data.get("scenario", "m365_phish")
     
     scenario = SCENARIOS.get(scenario_key, SCENARIOS["m365_phish"])
@@ -115,14 +119,17 @@ def start_simulation():
         "is_completed": False
     })
 
-@app.route('/api/next', methods=['POST'])
+@app.route('/api/next', methods=['GET', 'POST'])
 def next_stage():
-    data = request.get_json(silent=True) or {}
+    if request.method == 'POST':
+        data = request.get_json(silent=True) or {}
+    else:
+        data = request.args.to_dict()
     
     scenario_key = data.get("scenario_key", "m365_phish")
     current_node_id = data.get("current_node_id", "")
     option_id = data.get("option_id", "")
-    current_risk = data.get("risk_score", 0)
+    current_risk = int(data.get("risk_score", 0))
     history = data.get("history", [])
 
     scenario = SCENARIOS.get(scenario_key, SCENARIOS["m365_phish"])

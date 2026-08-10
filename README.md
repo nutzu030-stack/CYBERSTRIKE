@@ -17,7 +17,7 @@ npm start
 ### Screenshots
 <img src="images/Screenshot 2026-08-10 173957.png" alt="" width="100%" />
 <img src="images/Screenshot 2026-08-10 174841.png" alt="" width="100%" />
-<img src="" alt="SOC Dashboard Preview" width="100%" />
+<img src="images/Screenshot 2026-08-10 174939.png" alt="SOC Dashboard Preview" width="100%" />
 
 ### Features
 Decision-graph engine

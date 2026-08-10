@@ -15,9 +15,9 @@ npm install
 npm start
 
 ### Screenshots
-images/Screenshot 2026-08-10 173957.png
-
-
+<img src="" alt="SOC Dashboard Preview" width="100%" />
+<img src="" alt="SOC Dashboard Preview" width="100%" />
+<img src="" alt="SOC Dashboard Preview" width="100%" />
 
 ### Features
 Decision-graph engine
